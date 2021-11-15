@@ -1,0 +1,232 @@
+body {
+    width: 100%;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    background: url('images/background-left.svg') left top no-repeat,
+                url('images/background-right.svg') right bottom 42px no-repeat;    
+    background-color: #E5E5E5;
+ 
+}
+
+.main {
+    .wrapper {
+        max-width: 866px;
+        padding: 0 15px;
+        margin: 0 auto;
+    }
+    
+    .card-holder {
+        display: flex;
+        flex-direction: column;
+       
+    }
+
+    .main-content {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 25px;
+        
+    }
+
+    .view-toggle {
+        align-self: flex-end;
+        margin-bottom: 23px;
+
+        & input {
+            appearance: none;
+            display: none;
+        }
+
+        & label {
+            display: inline-block;
+            height: 100%;
+            cursor: pointer;
+
+            & svg path{
+                fill: #C8C7C7;
+                transition: all .5s ease;
+            }
+        }
+        
+        label {
+            margin-left: 21px;
+        }
+
+        #grid:checked + .grid path {
+            fill: #000;
+            transition: all .5s ease;
+        }
+
+        #list:checked + .list path {
+            fill: #000;
+            transition: all .5s ease;
+        }
+    }
+    
+    .card {
+        cursor: pointer;
+        background-color: #fff;
+        border-radius: 4px;
+        margin-bottom: 8px;
+        font-weight: 500;
+        @extend %flexrow;
+
+        @include media('>=tablet') {
+            transition: all .5s ease;
+            box-shadow: none;
+        }
+        
+        &:hover {
+            @include media('>=tablet') {
+                transform: scale(1.02);
+                box-shadow: 0 0 10px rgba(0,0,0,0.2);
+                transition: all .5s ease;     
+            }
+        }
+
+        .icon-like, .icon-comment {
+            font-family: 'Roboto', Arial, Helvetica, sans-serif;
+        }
+    }
+
+    .card-content {
+        margin-left: 30px;
+        padding: 15px 0;
+        @extend %flexrow;
+        flex-direction: column;
+        flex-grow: 1;
+        width: 50%;
+
+        @include media ('>=tablet') {
+            width: auto;
+            flex-direction: row;
+            padding: 0;
+        }
+    }
+    .item-col {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        font-size: 16px;
+        
+        &>:first-child {
+            margin-bottom: 7px;
+        }
+
+        @include media('>=tablet') {
+            width: 33.333%;
+        }
+    }
+
+    .card-img {
+        align-self: stretch;
+        width: calc(50% - 30px);
+
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            align-self: flex-start;
+        }
+
+        @include media('>=tablet') {
+            width: 86px;
+        }
+    }
+
+    .item-img + .item-col {
+        margin-left: 30px;
+    }
+
+    .item-row {
+        font-size: 14px;
+    }
+
+    .item-row span + span {
+        margin-left: 18px;
+    }
+
+    .more {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        margin-bottom: 61px;
+
+        }
+        & a {
+            text-align: center;
+            text-transform: uppercase   ;
+            font-size: 11px;
+            color: #929292;
+            padding: 8px 26px;
+            border: 1px solid #929292;
+            border-radius: 16px;
+            transition: box-shadow .5s ease;
+            
+            @include media('>=tablet') {
+                &:hover {
+                    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+                    transition: all .5s ease;
+                }    
+        }
+    }
+
+    .card-grid {
+        flex-direction: column;
+        width: calc(100% - 8px);
+
+        @include media('>=tablet') {
+            width: calc(25% - 8px);
+        }
+
+        .card-img {
+            width: 100%;
+        }
+        
+        .item-col {
+            width: 50%;
+
+            @include media ('>=tablet') {
+                flex-direction: column;
+            }
+        }
+
+        .item-row {
+            display: flex;
+            flex-direction: column;
+            & .icon-comment {
+                margin-left: 0;
+            }
+        }
+        .card-content {
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+            margin: 0;
+            padding: 12px 12px 18px;
+
+
+            &>:last-child{
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                
+            }
+        }
+        
+
+    }
+
+    .card-holder-grid {
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;    
+        
+        @include media('>=tablet') {
+            flex-direction: row;
+            gap: 8px;
+        }
+    }
+
+
+}
